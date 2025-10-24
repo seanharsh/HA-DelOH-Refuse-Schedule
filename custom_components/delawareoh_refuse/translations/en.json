@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Delaware OH Refuse Schedule Setup",
+        "description": "Enter your Delaware, Ohio address to set up refuse collection calendar",
+        "data": {
+          "address": "Street Address",
+          "update_interval": "Update Interval (days)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to Delaware County service. Please try again.",
+      "invalid_address": "Address not found or invalid. Please check your address.",
+      "unknown": "Unexpected error occurred"
+    },
+    "abort": {
+      "already_configured": "This address is already configured"
+    }
+  }
+}
