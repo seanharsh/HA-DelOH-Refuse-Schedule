@@ -19,13 +19,13 @@ A Home Assistant custom integration that creates a calendar entity for Delaware,
 
 ### HACS (Recommended)
 
-1. Open HACS in Home Assistant
-2. Go to "Integrations"
-3. Click the 3-dot menu → "Custom repositories"
-4. Add this repository URL: `https://github.com/seanharsh/HA-DelOH-Refuse-Schedule`
-5. Select "Integration" as the category
-6. Click "Install"
-7. Restart Home Assistant
+## Installing
+
+1. Install via HACS either by searching for HA-DelOH-Refuse-Schedule or clicking the icon below:
+
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=seanharsh&repository=ha-deloH-refuse-schedule)
+
+2. Restart Home Assistant
 
 ### Manual Installation
 
