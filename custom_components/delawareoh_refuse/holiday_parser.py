@@ -145,6 +145,12 @@ class HolidayParser:
                     holidays.append(holiday_info)
 
             _LOGGER.info("Parsed %d holidays from PDF", len(holidays))
+            for holiday in holidays:
+                _LOGGER.debug(
+                    "Parsed holiday: %s on %s - Adjustment: %s",
+                    holiday.get("name"), holiday.get("date"),
+                    holiday.get("adjustment", {}).get("type", "unknown")
+                )
 
         except Exception as err:
             _LOGGER.error("Error parsing PDF: %s", err)
