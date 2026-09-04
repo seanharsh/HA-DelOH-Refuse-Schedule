@@ -82,12 +82,22 @@ class HolidayParser:
                 if not line:
                     continue
 
+                # Normalize line to fix PDF extraction issues
+                # Fix space before comma: "Friday ," -> "Friday,"
+                normalized_line = re.sub(r'\s+,', ',', line)
+                # Fix split month names caused by PDF extraction
+                normalized_line = re.sub(r'Sept\s+ember', 'September', normalized_line)
+                normalized_line = re.sub(r'Nov\s+ember', 'November', normalized_line)
+                normalized_line = re.sub(r'Dec\s+ember', 'December', normalized_line)
+                # Fix split dates: "1 7" -> "17"
+                normalized_line = re.sub(r'(\d)\s+(\d)', r'\1\2', normalized_line)
+
                 # Check if this line starts a new holiday entry
                 # Format: "Day, Month Date   Holiday Name"
                 date_match = re.match(
-                    r'(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday),\s+'
-                    r'(\w+)\s+(\d{1,2})(?:,\s+(\d{4}))?\s+(.+)',
-                    line
+                    r'(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s*,\s*'
+                    r'(\w+)\s+(\d{1,2})(?:\s*,\s*(\d{4}))?\s+(.+)',
+                    normalized_line
                 )
 
                 if date_match:
