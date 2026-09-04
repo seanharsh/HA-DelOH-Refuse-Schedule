@@ -154,6 +154,11 @@ class DelawareRefuseCoordinator(DataUpdateCoordinator):
         Returns:
             Adjusted date or None if collection is cancelled
         """
+        _LOGGER.debug(
+            "Checking adjustment for %s (%s). Holidays loaded: %d",
+            scheduled_date, scheduled_date.strftime("%A"), len(self.holiday_parser.holidays)
+        )
+
         # Check if the scheduled date itself is a holiday
         if scheduled_date in self.holiday_parser.holidays:
             holiday_info = self.holiday_parser.holidays[scheduled_date]
