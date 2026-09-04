@@ -15,7 +15,7 @@ ARCGIS_REFUSE_LAYER_URL = "https://services.arcgis.com/eDETAHfuRDcwL2kQ/arcgis/r
 ARCGIS_DAY_FIELD = "Day"
 
 # Holiday Information
-HOLIDAY_DOCUMENT_URL = "https://www.delawareohio.net/home/showpublisheddocument/4148/638689880014270000"
+HOLIDAY_DOCUMENT_URL = "https://www.delawareohio.net/home/showpublisheddocument/6075"
 
 # Calendar Configuration
 CALENDAR_NAME = "Delaware OH Refuse Schedule"
