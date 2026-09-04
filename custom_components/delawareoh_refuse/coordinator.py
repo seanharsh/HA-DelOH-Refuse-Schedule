@@ -181,6 +181,15 @@ class DelawareRefuseCoordinator(DataUpdateCoordinator):
                         )
                         return adjusted
 
+            # Shift one day - holiday shifts all collections forward by 1 day
+            if adj_type == "shift_one_day":
+                adjusted = scheduled_date + timedelta(days=1)
+                _LOGGER.debug(
+                    "Shifting %s collection from %s to %s due to holiday",
+                    self.collection_day, scheduled_date, adjusted
+                )
+                return adjusted
+
             # Accelerated schedule - same day, just earlier pickup
             if adj_type == "accelerated":
                 return scheduled_date
