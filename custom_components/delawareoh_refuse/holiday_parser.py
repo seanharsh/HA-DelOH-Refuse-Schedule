@@ -146,7 +146,7 @@ class HolidayParser:
 
             _LOGGER.info("Parsed %d holidays from PDF", len(holidays))
             for holiday in holidays:
-                _LOGGER.debug(
+                _LOGGER.info(
                     "Parsed holiday: %s on %s - Adjustment: %s",
                     holiday.get("name"), holiday.get("date"),
                     holiday.get("adjustment", {}).get("type", "unknown")

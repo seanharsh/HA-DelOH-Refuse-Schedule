@@ -154,9 +154,9 @@ class DelawareRefuseCoordinator(DataUpdateCoordinator):
         Returns:
             Adjusted date or None if collection is cancelled
         """
-        _LOGGER.debug(
-            "Checking adjustment for %s (%s). Holidays loaded: %d",
-            scheduled_date, scheduled_date.strftime("%A"), len(self.holiday_parser.holidays)
+        _LOGGER.info(
+            "Checking adjustment for %s (%s). Collection day: %s. Holidays loaded: %d",
+            scheduled_date, scheduled_date.strftime("%A"), self.collection_day, len(self.holiday_parser.holidays)
         )
 
         # Check if the scheduled date itself is a holiday
@@ -235,6 +235,13 @@ class DelawareRefuseCoordinator(DataUpdateCoordinator):
                                 reschedule["to"], scheduled_date
                             )
                             return scheduled_date + timedelta(days=1)
+
+        # Final log for Sept 4 specifically
+        if scheduled_date.month == 9 and scheduled_date.day == 4:
+            _LOGGER.info(
+                "Sept 4 adjustment result: %s (no holiday adjustments applied)",
+                scheduled_date
+            )
 
         return scheduled_date
 
